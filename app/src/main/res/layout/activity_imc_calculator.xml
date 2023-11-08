@@ -92,7 +92,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/title_text"
-                android:text="@string/altura"
+                android:text="@string/height"
                 android:textAllCaps="true"/>
 
             <TextView
@@ -103,15 +103,14 @@
                 android:text="120 cm"
                 android:textSize="38sp"
                 android:textStyle="bold"/>
-            
+
             <com.google.android.material.slider.RangeSlider
+                android:id="@+id/rsHeight"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/rsHeight"
-                android:contentDescription="height"
-                android:stepSize="1"
-                android:valueForm="120"
-                android:valueTo="200"/>
+                android:contentDescription="@string/height"
+
+                />
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>

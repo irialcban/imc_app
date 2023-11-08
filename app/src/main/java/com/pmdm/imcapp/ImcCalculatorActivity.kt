@@ -13,7 +13,7 @@ class ImcCalculatorActivity : AppCompatActivity() {
     private lateinit var viewFemale:CardView
     private lateinit var tvHeight:TextView
     private lateinit var rsHeight:RangeSlider
-    var isMaleSelected:Boolean = true
+    private var isMaleSelected:Boolean = true
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_imc_calculator)
@@ -33,21 +33,18 @@ class ImcCalculatorActivity : AppCompatActivity() {
     private fun initListeners() {
 
         viewMale.setOnClickListener {
+            isMaleSelected = true
             setGenderColor()
         }
 
         viewFemale.setOnClickListener {
+            isMaleSelected = false
             setGenderColor()
         }
 
         rsHeight.addOnChangeListener {_,value,_ ->
             tvHeight.text = DecimalFormat("#.##").format(value) + "cm"
         }
-    }
-
-    private fun setGenderColor() {
-        viewMale.setCardBackgroundColor(getBackgrounColor(isMaleSelected))
-        viewFemale.setCardBackgroundColor(getBackgrounColor(!isMaleSelected))
     }
 
     private fun getBackgrounColor(isComponentSelected: Boolean): Int {
@@ -58,6 +55,11 @@ class ImcCalculatorActivity : AppCompatActivity() {
         }
 
         return ContextCompat.getColor(this,colorReference)
+    }
+
+    private fun setGenderColor() {
+        viewMale.setCardBackgroundColor(getBackgrounColor(isMaleSelected))
+        viewFemale.setCardBackgroundColor(getBackgrounColor(!isMaleSelected))
     }
 
     private fun initUI() {
