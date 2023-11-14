@@ -114,7 +114,7 @@
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/height"
                 android:stepSize = "1"
-                android:valueForm = "120"
+                android:valueFrom = "120"
                 android:valueTo = "200"
                 />
 
